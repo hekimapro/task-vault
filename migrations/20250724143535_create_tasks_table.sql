@@ -2,7 +2,7 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE
-    tasts (
+    tasks (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4 (),
         user_id UUID REFERENCES users (id) ON DELETE CASCADE NOT NULL,
         title VARCHAR(100) NOT NULL,
@@ -14,4 +14,4 @@ CREATE TABLE
     );
 
 -- +goose Down
-DROP TABLE IF EXISTS tasts CASCADE;
+DROP TABLE IF EXISTS tasks CASCADE;
