@@ -26,8 +26,6 @@ Thumbs.db
 
 # Environment files
 
-# Air
-.air.toml
 
 # Goose generated binaries (if any)
 goose.exe
