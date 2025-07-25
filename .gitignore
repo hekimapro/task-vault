@@ -1,0 +1,38 @@
+# Binaries
+bin/
+tmp/
+*.exe
+*.out
+*.test
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go build artifacts
+*.log
+*.cache
+*.mod
+*.sum
+
+# IDE/editor stuff
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+
+# Air
+.air.toml
+
+# Goose generated binaries (if any)
+goose.exe
+goose
+
+# Migration logs or backups
+migrations/*.bak
+migrations/*.tmp
