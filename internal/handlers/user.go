@@ -6,6 +6,7 @@ import (
 	"github.com/hekimapro/task-vault/internal/middleware"
 	"github.com/hekimapro/task-vault/internal/models"
 	"github.com/hekimapro/task-vault/internal/services"
+	views "github.com/hekimapro/task-vault/web/templates/views/user"
 )
 
 type handler struct {
@@ -16,6 +17,10 @@ func NewUser(service services.User) *handler {
 	return &handler{
 		Service: service,
 	}
+}
+
+func (handler *handler) LoginView(response http.ResponseWriter, request *http.Request) {
+	views.Login().Render(request.Context(), response)
 }
 
 func (handler *handler) Create(response http.ResponseWriter, request *http.Request) {

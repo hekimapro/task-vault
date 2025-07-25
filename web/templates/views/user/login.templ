@@ -1,0 +1,18 @@
+package views
+
+import "github.com/hekimapro/task-vault/internal/models"
+import "github.com/hekimapro/task-vault/web/templates/components"
+
+templ Login() {
+	@components.Layout("login") {
+		@components.Card("login") {
+			<form hx-post="/login-post">
+				@components.Row() {
+					@components.Col(models.GridColumn{SM: 12}) {
+						<input name="email" type="email"/>
+					}
+				}
+			</form>
+		}
+	}
+}

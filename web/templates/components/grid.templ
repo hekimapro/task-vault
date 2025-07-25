@@ -1,0 +1,41 @@
+package components
+
+import (
+	"fmt"
+	"github.com/hekimapro/task-vault/internal/models"
+	"strings"
+)
+
+templ Row() {
+	<div class="row">
+		{ children... }
+	</div>
+}
+
+templ Col(col models.GridColumn) {
+	<div class={ buildClassName(col) }>
+		{ children... }
+	</div>
+}
+
+func buildClassName(col models.GridColumn) string {
+	className := []string{}
+	if col.SM != 0 {
+		className = append(className, fmt.Sprintf("s%d", col.SM))
+	}
+	if col.MD != 0 {
+		className = append(className, fmt.Sprintf("m%d", col.MD))
+	}
+	if col.LG != 0 {
+		className = append(className, fmt.Sprintf("l%d", col.LG))
+	}
+	if col.MDOffset != 0 {
+		className = append(className, fmt.Sprintf("offset-m%d", col.MDOffset))
+	}
+	if col.IsCenter {
+		className = append(className, "center")
+	} else if col.IsRight {
+		className = append(className, "right")
+	}
+	return strings.Join(className, " ")
+}
