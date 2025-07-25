@@ -1,3 +1,3 @@
-# taskvault
+# Task Vault
 
-TaskVault starter project with Go, HTMX, Templ, and Air.
+Task Vault project with Go, Templ, HTMX, and Postgres.
