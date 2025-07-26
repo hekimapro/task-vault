@@ -1,0 +1,21 @@
+package components
+
+import "github.com/hekimapro/task-vault/internal/models"
+
+templ Input(input models.Input) {
+	<div>
+		<label for={ input.Name }>
+			{ input.Label }
+		</label>
+		<input
+			name={ input.Name }
+			type={ input.Type }
+			placeholder={ input.Placeholder }
+		/>
+		if input.Error != "" {
+			<span class="helper-text">
+				{ input.Error }
+			</span>
+		}
+	</div>
+}

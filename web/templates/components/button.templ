@@ -1,0 +1,14 @@
+package components
+
+import "github.com/hekimapro/task-vault/internal/models"
+import "strings"
+
+templ Button(button models.Button) {
+	<button
+		type={ button.Type }
+		disabled?={ button.IsDisabled }
+		class={ strings.Join(button.ClassNames, " ") }
+	>
+		{ button.Title }
+	</button>
+}

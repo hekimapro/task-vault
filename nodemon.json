@@ -1,0 +1,17 @@
+{
+    "watch": [
+        "."
+    ],
+    "ignore": [
+        "tmp",
+        "vendor",
+        "web"
+    ],
+    "ext": "go, templ",
+    "execMap": {
+        "go": "clear && templ generate && go build -o tmp/task-vault ./cmd/main.go && ./tmp/task-vault",
+        "": "cls && templ generate && go build -o tmp\\task-vault.exe ./cmd/main.go && tmp\\task-vault.exe"
+    },
+    "delay": 1,
+    "verbose": true
+}

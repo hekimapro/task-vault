@@ -5,14 +5,49 @@ import "github.com/hekimapro/task-vault/web/templates/components"
 
 templ Login() {
 	@components.Layout("login") {
-		@components.Card("login") {
-			<form hx-post="/login-post">
-				@components.Row() {
-					@components.Col(models.GridColumn{SM: 12}) {
-						<input name="email" type="email"/>
-					}
+		@components.Row() {
+			@components.Col(models.GridColumn{
+				SM:       12,
+				MD:       8,
+				LG:       6,
+				MDOffset: 2,
+				LGOffset: 3,
+			}) {
+				@components.Card("login") {
+					<form hx-post="/login-post">
+						@components.Row() {
+							@components.Col(models.GridColumn{SM: 12}) {
+								@components.Input(models.Input{
+									Error:       "",
+									Name:        "email",
+									Type:        "email",
+									Label:       "Email Address",
+									Placeholder: "Enter your email address",
+								})
+							}
+						}
+						@components.Row() {
+							@components.Col(models.GridColumn{SM: 12}) {
+								@components.Input(models.Input{
+									Error:       "",
+									Name:        "password",
+									Type:        "password",
+									Label:       "Password",
+									Placeholder: "Enter your account password",
+								})
+							}
+						}
+						@components.Row() {
+							@components.Col(models.GridColumn{IsCenter: true, SM: 12}) {
+								@components.Button(models.Button{
+									Type:  "submit",
+									Title: "login",
+								})
+							}
+						}
+					</form>
 				}
-			</form>
+			}
 		}
 	}
 }

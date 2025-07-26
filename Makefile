@@ -7,8 +7,8 @@ export
 dev:
 	@echo "Running pending migrations..."
 	goose -dir migrations postgres "$(DATABASE_URL)" up
-	@echo "Starting development server with Air..."
-	@air
+	@echo "Starting development server with NODEMON..."
+	@nodemon
 
 build:
 	@echo "Building binary..."

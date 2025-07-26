@@ -44,7 +44,8 @@ func (handler *handler) Login(response http.ResponseWriter, request *http.Reques
 	emailAddress := request.FormValue("email")
 	user, err := handler.Service.Authenticate(emailAddress, password)
 	if err != nil {
-
+		views.Login().Render(request.Context(), response)
+		return 
 	}
 	middleware.SetSession(response, user.ID)
 	http.Redirect(response, request, "/dashboard", http.StatusSeeOther)

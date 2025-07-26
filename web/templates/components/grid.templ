@@ -19,23 +19,38 @@ templ Col(col models.GridColumn) {
 }
 
 func buildClassName(col models.GridColumn) string {
-	className := []string{}
+
+	className := []string{"col"}
+
 	if col.SM != 0 {
 		className = append(className, fmt.Sprintf("s%d", col.SM))
 	}
+
 	if col.MD != 0 {
 		className = append(className, fmt.Sprintf("m%d", col.MD))
 	}
+
 	if col.LG != 0 {
 		className = append(className, fmt.Sprintf("l%d", col.LG))
 	}
+
 	if col.MDOffset != 0 {
 		className = append(className, fmt.Sprintf("offset-m%d", col.MDOffset))
 	}
+
+	if col.LGOffset != 0 {
+		className = append(className, fmt.Sprintf("offset-l%d", col.LGOffset))
+	}
+
 	if col.IsCenter {
 		className = append(className, "center")
 	} else if col.IsRight {
 		className = append(className, "right")
 	}
+
+	if len(col.ClassNames) > 0 {
+		className = append(className, col.ClassNames...)
+	}
+
 	return strings.Join(className, " ")
 }
